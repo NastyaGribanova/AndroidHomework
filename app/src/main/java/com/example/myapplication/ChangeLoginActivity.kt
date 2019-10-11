@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import layout.PasswordRepository
 import kotlinx.android.synthetic.main.activity_change_login.*
 
 class ChangeLoginActivity : AppCompatActivity() {
@@ -14,7 +15,7 @@ class ChangeLoginActivity : AppCompatActivity() {
     }
 
     fun onClick2(view: View) {
-        LoginActivity.PasswordRepository.password = editText2.text.toString()
+        PasswordRepository.password = textInputEditText.text.toString()
         onBackPressed()
     }
 }

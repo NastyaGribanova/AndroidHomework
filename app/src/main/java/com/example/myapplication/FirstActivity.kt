@@ -27,6 +27,7 @@ class FirstActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SEND_REQUEST && resultCode == Activity.RESULT_OK){
             Toast.makeText(this, "Successfully", Toast.LENGTH_SHORT).show()
         } else {

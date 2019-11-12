@@ -5,13 +5,15 @@
     android:id="@+id/dirty_tricks_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E3F3FA"
     tools:context=".DirtyTricksFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_firstTrick"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="422dp"
-        android:layout_height="wrap_content"
+        android:layout_height="86dp"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,6 +23,7 @@
             android:layout_width="431dp"
             android:layout_height="wrap_content"
             android:hint="@string/name_of_mudblood"
+            android:padding="16dp"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -28,8 +31,9 @@
         android:id="@+id/ti_secondTrick"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="422dp"
-        android:layout_height="wrap_content"
+        android:layout_height="115dp"
         android:layout_marginTop="90dp"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ti_firstTrick">
@@ -37,12 +41,14 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_secondTrick"
             android:layout_width="431dp"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:hint="@string/unforgivablecourse"
+            android:padding="16dp"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:padding="16dp"
         android:id="@+id/ti_thirdTrick"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="422dp"
@@ -55,8 +61,9 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_thirdTrick"
             android:layout_width="431dp"
-            android:layout_height="wrap_content"
+            android:layout_height="51dp"
             android:hint="@string/steal_thing"
+            android:padding="16dp"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +71,9 @@
         android:id="@+id/button_trick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="270dp"
+        android:backgroundTint="#86E1F0"
+        android:padding="16dp"
         android:text="Lets trick" />
 
 </FrameLayout>

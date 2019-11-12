@@ -12,19 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = SerialAdapter(getDataSource()) { name, duration, description, image, _ ->
-            navigateToSerialActivity(name, duration, description, image)
+        adapter = SerialAdapter(getDataSource()) { Serial ->
+            navigateToSerialActivity(Serial)
         }
 
         rv_serials.adapter = adapter
     }
 
     private fun navigateToSerialActivity(
-        name: String,
-        director: String,
-        description: String,
-        image: Int) {
-        startActivity(SerialActivity.createIntent(this, name, director, description, image))
+        serial: Serial) {
+        startActivity(SerialActivity.createIntent(this, serial))
     }
 
     private fun getDataSource(): ArrayList<Serial> = arrayListOf(

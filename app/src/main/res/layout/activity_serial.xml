@@ -25,7 +25,6 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@id/tv_duration_serial_activity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_serial_activity"
         tools:text="Name" />
@@ -37,7 +36,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/tv_description_serial_activity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_name_serial_activity"
         tools:text="Duration" />
@@ -49,7 +47,6 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_duration_serial_activity"
         tools:text="Description" />

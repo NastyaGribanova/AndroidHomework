@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.item_serial.*
 
 class SerialHolder (
     override val containerView: View,
-    private val clickLambda: (String, String, String, Int, Serial) -> Unit
+    private val clickLambda: (Serial) -> Unit
 ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
     fun bind(serial: Serial) {
@@ -19,12 +19,12 @@ class SerialHolder (
         iv_main.setImageResource(serial.image)
 
         itemView.setOnClickListener {
-            clickLambda(serial.name, serial.duration, serial.description, serial.image, serial)
+            clickLambda(serial)
         }
     }
 
     companion object {
-        fun create(parent: ViewGroup, clickLambda: (String, String, String, Int, Serial) -> Unit) =
+        fun create(parent: ViewGroup, clickLambda: (Serial) -> Unit) =
             SerialHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.item_serial, parent, false),
                 clickLambda

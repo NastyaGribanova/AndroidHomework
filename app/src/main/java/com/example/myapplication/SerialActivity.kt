@@ -28,15 +28,12 @@ class SerialActivity : AppCompatActivity() {
 
         fun createIntent(
             activity: Activity,
-            name: String,
-            duration: String,
-            description: String,
-            image: Int
+            serial: Serial
         ) = Intent(activity, SerialActivity::class.java).apply {
-            putExtra(KEY_FILM_NAME, name)
-            putExtra(KEY_FILM_DURATION, duration)
-            putExtra(KEY_FILM_DESCRIPTION, description)
-            putExtra(KEY_FILM_IMAGE, image)
+            putExtra(KEY_FILM_NAME, serial.name)
+            putExtra(KEY_FILM_DURATION, serial.duration)
+            putExtra(KEY_FILM_DESCRIPTION, serial.description)
+            putExtra(KEY_FILM_IMAGE, serial.image)
         }
     }
 }

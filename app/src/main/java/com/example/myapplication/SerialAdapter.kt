@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class SerialAdapter (
     private var dataSource: List<Serial>,
-    private val clickLambda: (String, String, String, Int, Serial) -> Unit
+    private val clickLambda: (Serial) -> Unit
 ) : RecyclerView.Adapter<SerialHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SerialHolder =

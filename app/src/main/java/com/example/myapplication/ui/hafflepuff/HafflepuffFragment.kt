@@ -13,8 +13,9 @@ class HafflepuffFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_hufflepuff, container, false)
-        return view
+    ): View? = inflater.inflate(R.layout.fragment_hufflepuff, container, false)
+
+    companion object {
+        fun newInstance(): HafflepuffFragment = HafflepuffFragment()
     }
 }

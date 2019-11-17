@@ -6,6 +6,10 @@
     <group android:checkableBehavior="single">
         <item android:title="Faculties">
             <menu>
+                <item
+                    android:id="@+id/nav_hogwarts"
+                    android:src="@drawable/imgrav"
+                    android:title="@string/Hogwarts" />
         <item
             android:id="@+id/nav_ravenclaw"
             android:src="@drawable/imgrav"

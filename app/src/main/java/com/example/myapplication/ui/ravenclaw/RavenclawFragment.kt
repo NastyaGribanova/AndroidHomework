@@ -13,8 +13,9 @@ class RavenclawFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_ravenclaw, container, false)
-        return view
+    ): View? = inflater.inflate(R.layout.fragment_ravenclaw, container, false)
+
+    companion object {
+        fun newInstance(): RavenclawFragment = RavenclawFragment()
     }
 }

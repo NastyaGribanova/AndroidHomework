@@ -13,8 +13,9 @@ class GriffindorFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_griffindor, container, false)
-        return view
+    ): View? = inflater.inflate(R.layout.fragment_griffindor, container, false)
+
+    companion object {
+        fun newInstance(): GriffindorFragment = GriffindorFragment()
     }
 }

@@ -1,19 +1,22 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import android.view.Menu
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
-import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.example.myapplication.ui.griffindor.GriffindorFragment
+import com.example.myapplication.ui.hafflepuff.HafflepuffFragment
+import com.example.myapplication.ui.hogwarts.HogwartsFragment
+import com.example.myapplication.ui.ravenclaw.RavenclawFragment
+import com.example.myapplication.ui.slytherin.SlytherinFragment
+import kotlinx.android.synthetic.main.activity_first.*
 
 class FirstActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,23 +24,60 @@ class FirstActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = this.findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_hogwarts, R.id.nav_ravenclaw, R.id.nav_griffindor,
-                R.id.nav_hufflepuff, R.id.nav_slytherin
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_hogwarts -> {
+                    navigateToFragment(HogwartsFragment.newInstance())
+                }
+                R.id.nav_ravenclaw -> {
+                    navigateToFragment(RavenclawFragment.newInstance())
+                }
+                R.id.nav_griffindor -> {
+                    navigateToFragment(GriffindorFragment.newInstance())
+                }
+                R.id.nav_hufflepuff -> {
+                    navigateToFragment(HafflepuffFragment.newInstance())
+                }
+                R.id.nav_slytherin -> {
+                    navigateToFragment(SlytherinFragment.newInstance())
+                }
+                else -> {
+                }
+            }
+            drawer_layout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onBackPressed() {
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        when {
+            drawer.isDrawerOpen(GravityCompat.START) -> drawer.closeDrawer(GravityCompat.START)
+            else -> super.onBackPressed()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.activity_first_drawer, menu)
+        return true
+    }
+
+    private fun navigateToFragment(fragmentToNavigate: Fragment): Boolean {
+        supportFragmentManager.also {
+            it.beginTransaction().apply {
+                replace(R.id.frameLayout, fragmentToNavigate)
+                setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                addToBackStack(null)
+                commit()
+            }
+        }
+        return true
+    }
+
+    private fun setUpDrawerLayout() {
+        val toggle = ActionBarDrawerToggle(
+            this, drawer_layout, toolbar, R.string.Hogwarts, R.string.Slytherin)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
     }
 }

@@ -7,26 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_tricks.*
 
-
 class TricksFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view: View = inflater.inflate(R.layout.fragment_tricks, container, false)
-        return view
-    }
+    ): View? = inflater.inflate(R.layout.fragment_tricks, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val name: String = arguments?.getString("name").toString()
-        val curse: String = arguments?.getString("curse").toString()
-        val thing: String = arguments?.getString("thing").toString()
-        tv_name.text = name
-        tv_curse.text = curse
-        tv_thing.text = thing
+        tv_name.text = arguments?.getString(NAME)
+        tv_curse.text = arguments?.getString(CURSE)
+        tv_thing.text = arguments?.getString(THING)
     }
 
     companion object {
@@ -36,8 +29,8 @@ class TricksFragment : Fragment() {
         private const val THING = "thing"
 
         fun newInstance(name: String = "NULL", curse: String = "NULL", thing: String = "NULL"):
-                TricksFragment = TricksFragment().apply {
-                    arguments = Bundle().apply {
+                TricksFragment = TricksFragment().also {
+                    it.arguments = Bundle().apply {
                         putString(NAME, name)
                         putString(CURSE, curse)
                         putString(THING, thing)

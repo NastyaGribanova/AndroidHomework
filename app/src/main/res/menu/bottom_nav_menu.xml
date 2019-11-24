@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/doctor"
+        android:icon="@drawable/icontardis"
+        android:itemBackground="#8ed8e0"
+        android:title="@string/Doctor" />
+
+    <item
+        android:id="@+id/companion"
+        android:icon="@drawable/icontardis"
+        android:background="#8ed8e0"
+        android:title="@string/Who" />
+
+    <item
+        android:id="@+id/doctorWho"
+        android:icon="@drawable/icontardis"
+        android:background="#8ed8e0"
+        android:title="@string/DoctorWho" />
+
+</menu>

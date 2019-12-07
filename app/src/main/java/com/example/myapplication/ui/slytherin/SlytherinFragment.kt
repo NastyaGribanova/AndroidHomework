@@ -19,13 +19,11 @@ class SlytherinFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         button_tricks.setOnClickListener {
-            fragmentManager.also {
-                it?.beginTransaction()?.apply {
+            fragmentManager?.beginTransaction()?.apply {
                     setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_left)
                     replace(R.id.frameLayout, DirtyTricksFragment.create())
                     addToBackStack(null)
                     commit()
-                }
             }
         }
     }

@@ -6,13 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:itemCount="5"
+        tools:listitem="@layout/item_note" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="28dp"
+        android:background="#FBFBFD"
+        android:clickable="true"
+        android:onClick="onClick"
+        app:layout_anchor="@id/rv_notes"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_notes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rv_notes"
+        app:srcCompat="@drawable/imgaddnote" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_fab"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        android:background="#FBFBFD"
+        android:clickable="true"
+        app:layout_anchor="@id/rv_notes"
+        app:layout_anchorGravity="bottom|start"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_notes"
+        app:layout_constraintStart_toEndOf="@+id/rv_notes"
+        app:layout_constraintStart_toStartOf="@+id/rv_notes"
+        app:srcCompat="@android:drawable/btn_dialog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

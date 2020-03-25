@@ -1,18 +1,28 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+ext {
+    API_KEY = 'baab15c756ebdf17914576272126c8aa'
+}
+
+if ("true" == System.getenv("CI")) {
+    def key = System.getenv("OPEN_WEATHER_KEY")
+    API_KEY = "\"$key\""
+} else {
+    API_KEY = apiKey
+}
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.myapplication"
-        minSdkVersion 21
+        applicationId "com.example.androidhomework"
+        minSdkVersion 28
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -20,15 +30,36 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'API_ENDPOINT', baseUrl
+        it.buildConfigField 'String', 'API_KEY', apiKey
+    }
+    compileOptions {
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
+    }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.2"
+    implementation 'com.android.support:design:28.0.0'
+
+    implementation "com.squareup.retrofit2:retrofit:2.6.4"
+    implementation "com.squareup.retrofit2:converter-gson:2.6.4"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.8'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 }

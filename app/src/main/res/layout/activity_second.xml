@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weatherbackground2"
+    tools:context=".SecondActivity">
+
+    <ImageView
+        android:id="@+id/iv_second_picture"
+        android:layout_width="154dp"
+        android:layout_height="145dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconweather" />
+
+    <TextView
+        android:id="@+id/tv_second_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="City"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        android:textColor="#070505"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_second_picture" />
+
+    <TextView
+        android:id="@+id/tv_second_temp"
+        android:layout_width="136dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="40dp"
+        android:text="Temp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#050404"
+        android:textSize="50sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_city" />
+
+    <TextView
+        android:id="@+id/tv_second_humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Humidity"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#050404"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_second_temp" />
+
+    <TextView
+        android:id="@+id/tv_second_wind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Wind"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#030303"
+        android:textSize="20sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.649"
+        app:layout_constraintStart_toEndOf="@+id/tv_second_humidity"
+        app:layout_constraintTop_toBottomOf="@+id/tv_second_temp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="101dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="572dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chan" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
